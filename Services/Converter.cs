@@ -48,9 +48,9 @@ namespace StringTableEditorCS.Services
             for (int i = 0; i < bytes.Length; i++)
             {
                 byte b = bytes[i];
-                if (SpecialCharacters.TryGetValue(b, out string s))
+                if (SpecialCharacters.TryGetValue(b, out var specialCharacter))
                 {
-                    sb.Append(s);
+                    sb.Append(specialCharacter);
                 }
                 else
                 {
