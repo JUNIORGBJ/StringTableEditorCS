@@ -106,6 +106,7 @@ namespace StringTableEditorCS
             try
             {
                 _stringTable.SaveTableToFiles(_tablePath, _dataPath);
+                RefreshEntriesList();
                 UpdateEditingFileStatus(_dataPath);
                 ShowSearchFeedback("Alterações salvas com sucesso.", Color.DarkGreen);
                 MessageBox.Show("Salvo com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -126,6 +127,12 @@ namespace StringTableEditorCS
         {
             txtSearch.Clear();
             txtSearch.Focus();
+        }
+
+        private void RefreshEntriesList()
+        {
+            ApplySearchFilter();
+            lstEntries.Refresh();
         }
 
         private void MainForm_Resize(object? sender, EventArgs e)
